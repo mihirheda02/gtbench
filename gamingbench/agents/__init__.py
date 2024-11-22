@@ -6,3 +6,5 @@ from gamingbench.agents.tot_agent import ToTAgent
 from gamingbench.agents.random_agent import RandomAgent
 from gamingbench.agents.mcts_agent import MCTSAgent
 from gamingbench.agents.titfortat_agent import TitForTatAgent
+from gamingbench.agents.minimax_agent import MinimaxAgent
+

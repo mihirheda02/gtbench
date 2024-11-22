@@ -1,8 +1,8 @@
 seed=0
 output_root="./experiments"
 exp_name='test'
-num_matches=50 # number of matches
-num_workers=20 # run 20 matches in parallel
+num_matches=1 # number of matches
+num_workers=1 # run 20 matches in parallel
 threshold_matches=100 # maximum number of matches, stop criteria for low completion rate, e.g., LLM agents always generate illegal actions.
 # suports all the games listed in ./gamingbench/configs/game_configs/*.yaml
 game_name='tictactoe'
@@ -14,7 +14,7 @@ opponent_llm_name='gpt-35-turbo-1106'
 agent_config_root='gamingbench/configs/agent_configs'
 agent_name='prompt_agent'
 opponent_agent_name='cot_agent'
-declare -a api_keys=("<YOUR-OPENAIAPI-KEY>" "<YOUR_DEEPINFRA_KEY>")
+declare -a api_keys=("")
 
 python3 -m gamingbench.main \
     --num-matches ${num_matches} \
@@ -27,3 +27,4 @@ python3 -m gamingbench.main \
     --exchange-first-player \
     --num-workers ${num_workers} \
     --threshold-matches ${threshold_matches}
+

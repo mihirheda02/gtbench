@@ -133,6 +133,8 @@ class HistoryTracker:
         agents_win_match = defaultdict(lambda: 0)
 
         for m in self.matches:
+            print(m)
+            print(m.to_dict())
             if m.status == "Normal":
                 valid_match_num += 1
                 if m.winner != "":
@@ -196,4 +198,5 @@ class HistoryTracker:
         with open(path, 'w') as json_file:
             json_file.write(json_data)
         pass
+
 

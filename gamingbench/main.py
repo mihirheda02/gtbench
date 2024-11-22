@@ -36,6 +36,8 @@ def get_args():
 
     parser.add_argument('--output-folder', default='./')
 
+    parser.add_argument('--azure-api-key', default='')
+
     parser.add_argument('--api-keys', default='', nargs='+')
 
     parser.add_argument('--exchange-first-player',
@@ -205,10 +207,16 @@ def main(args):
         for k in args.api_keys:
             if k.startswith('sk-'):
                 os.environ["OPENAI_API_KEY"] = k
+            elif k.startswith('hf_'):
+                os.environ["HUGGINGFACE_API_KEY"] = k
             elif k.startswith('esecret'):
                 os.environ["ANYSCALE_API_KEY"] = k
             else:
                 os.environ["DEEPINFRA_API_KEY"] = k
+
+    if args.azure_api_key:
+        os.environ["AZURE_OPENAI_ENDPOINT"] = "https://chatgpt-simulation.openai.azure.com/"
+        os.environ["AZURE_OPENAI_API_KEY"] = args.azure_api_key
 
     utils.set_seed(args.seed)
 
