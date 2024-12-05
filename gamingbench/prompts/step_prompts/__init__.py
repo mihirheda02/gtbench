@@ -2,6 +2,7 @@
 from gamingbench.prompts.step_prompts import prompt_agent
 from gamingbench.prompts.step_prompts import cot_agent
 from gamingbench.prompts.step_prompts import tot_agent
+from gamingbench.prompts.step_prompts import react_agent
 
 # maps
 mapping = {
